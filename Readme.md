@@ -50,8 +50,8 @@ license.
 * [Write small functions](#write-small-functions)
 * [Don't repeat yourself](#dont-repeat-yourself)
 * [Return early from functions](#return-early-from-functions)
-* [Name your closures](#name-your-closures)
-* [Nested closures are OK](#nested-closures-are-ok)
+* [Name your anonymous functions](#name-your-anonymous-functions)
+* [Nested anonymous functions are OK](#nested-anonymous-functions-are-ok)
 * [Method chaining](#method-chaining)
 * [Use globals in scope](#use-globals-in-scope)
 
@@ -444,9 +444,9 @@ function isPercentage(val)
 }
 ```
 
-### Name your closures
+### Name your anonymous functions
 
-Feel free to give your closures a name. It shows that you care about them, and
+Feel free to give your anonymous functions a name. It shows that you care about them, and
 will produce better stack traces, heap and cpu profiles.
 
 *Right:*
@@ -467,9 +467,9 @@ req.on('end', function()
 });
 ```
 
-### Nested closures are OK
+### Nested anonymous functions are OK
 
-Nest closures when it keeps code simple.
+Nest anonymous functions when it keeps code simple.
 
 *Right:*
 
