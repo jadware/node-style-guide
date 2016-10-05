@@ -362,6 +362,7 @@ if(password.length >= 4 && /^(?=.*\d).{4,}$/.test(password))
 Don't use singletons or factories.  They tend to hide dependencies, violate the [single responsibility principle] (https://en.wikipedia.org/wiki/Single_responsibility_principle),
 and cause code to be tightly coupled which interferes with testing.
 Also, they carry state around for hte lifetime of the application, which also interferes with unit testing.
+
 Singletons solve one, and only one problem: resource contention.
 If you're not specifically solving that problem, singleton is the wrong pattern.
 
