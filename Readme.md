@@ -269,16 +269,16 @@ File.fullPermissions = 0777;
 
 ### Object / Array creation
 
-Use trailing commas and put *short* declarations on a single line. Only quote
-keys when your interpreter complains:
+Use trailing commas and put *short* declarations on a single line. Always quote keys.
 
 *Right:*
 
 ```js
 var a = ['hello', 'world'];
-var b = {
-  good: 'code',
-  'is generally': 'pretty',
+var b =
+{
+	'good': 'code',
+	'is generally': 'pretty',
 };
 ```
 
@@ -286,7 +286,7 @@ var b = {
 
 ```js
 var a = [
-  'hello', 'world'
+	'hello', 'world'
 ];
 var b = {"good": 'code'
         , is generally: 'pretty'
@@ -304,39 +304,37 @@ the triple equality operator as it will work just as expected.
 
 ```js
 var a = 0;
-if (a !== '') {
-  console.log('winning');
-}
-
+if(a === '')
+	console.log('winning');
 ```
 
 *Wrong:*
 
 ```js
 var a = 0;
-if (a == '') {
-  console.log('losing');
-}
+if (a == '')
+	console.log('losing');
 ```
 
 [comparisonoperators]: https://developer.mozilla.org/en/JavaScript/Reference/Operators/Comparison_Operators
 
 ### Use multi-line ternary operator
 
-The ternary operator should not be used on a single line. Split it up into multiple lines instead.
+If the ternary operator can fit on a single line, do it.  Otherwise, split it up into multiple lines.
 
-*Right:*
-
-```js
-var foo = (a === b)
-  ? 1
-  : 2;
-```
 
 *Wrong:*
 
 ```js
 var foo = (a === b) ? 1 : 2;
+```
+
+*Right:*
+
+```js
+var foo = (a === b)
+	? 1
+	: 2;
 ```
 
 ### Use descriptive conditions
@@ -348,17 +346,15 @@ Any non-trivial conditions should be assigned to a descriptively named variable 
 ```js
 var isValidPassword = password.length >= 4 && /^(?=.*\d).{4,}$/.test(password);
 
-if (isValidPassword) {
-  console.log('winning');
-}
+if(isValidPassword)
+	console.log('winning');
 ```
 
 *Wrong:*
 
 ```js
-if (password.length >= 4 && /^(?=.*\d).{4,}$/.test(password)) {
-  console.log('losing');
-}
+if(password.length >= 4 && /^(?=.*\d).{4,}$/.test(password))
+	console.log('losing');
 ```
 
 ## Functions
@@ -377,32 +373,32 @@ as possible.
 *Right:*
 
 ```js
-function isPercentage(val) {
-  if (val < 0) {
-    return false;
-  }
+function isPercentage(val)
+{
+	if(val < 0)
+		return false;
 
-  if (val > 100) {
-    return false;
-  }
+	if(val > 100)
+		return false;
 
-  return true;
+	return true;
 }
 ```
 
 *Wrong:*
 
 ```js
-function isPercentage(val) {
-  if (val >= 0) {
-    if (val < 100) {
-      return true;
-    } else {
-      return false;
-    }
-  } else {
-    return false;
-  }
+function isPercentage(val)
+{
+	if (val >= 0)
+	{
+		if (val < 100)
+			return true;
+		else
+			return false;
+	} else {
+		return false;
+	}
 }
 ```
 
@@ -410,9 +406,10 @@ Or for this particular example it may also be fine to shorten things even
 further:
 
 ```js
-function isPercentage(val) {
-  var isInRange = (val >= 0 && val <= 100);
-  return isInRange;
+function isPercentage(val)
+{
+	var isInRange = (val >= 0 && val <= 100);
+	return isInRange;
 }
 ```
 
@@ -424,43 +421,49 @@ will produce better stack traces, heap and cpu profiles.
 *Right:*
 
 ```js
-req.on('end', function onEnd() {
-  console.log('winning');
+req.on('end', function onEnd()
+{
+	console.log('winning');
 });
 ```
 
 *Wrong:*
 
 ```js
-req.on('end', function() {
-  console.log('losing');
+req.on('end', function()
+{
+	console.log('losing');
 });
 ```
 
-### No nested closures
+### Nested closures are OK
 
-Use closures, but don't nest them. Otherwise your code will become a mess.
+Nest closures when it keeps code simple.
 
 *Right:*
 
 ```js
-setTimeout(function() {
-  client.connect(afterConnect);
+setTimeout(function tryConnect()
+{
+	client.connect(function afterConnect()
+	{
+		console.log('losing');
+	});
 }, 1000);
-
-function afterConnect() {
-  console.log('winning');
-}
 ```
 
 *Wrong:*
 
 ```js
-setTimeout(function() {
-  client.connect(function() {
-    console.log('losing');
-  });
+setTimeout(function()
+{
+	client.connect(afterConnect);
 }, 1000);
+
+function afterConnect()
+{
+	console.log('winning');
+}
 ```
 
 
@@ -474,11 +477,12 @@ You should also indent these methods so it's easier to tell they are part of the
 
 ```js
 User
-  .findOne({ name: 'foo' })
-  .populate('bar')
-  .exec(function(err, user) {
-    return true;
-  });
+	.findOne({ name: 'foo' })
+	.populate('bar')
+	.exec(function(err, user)
+	{
+		return true;
+	});
 ````
 
 *Wrong:*
@@ -487,25 +491,29 @@ User
 User
 .findOne({ name: 'foo' })
 .populate('bar')
-.exec(function(err, user) {
-  return true;
+.exec(function(err, user)
+{
+	return true;
 });
 
 User.findOne({ name: 'foo' })
-  .populate('bar')
-  .exec(function(err, user) {
-    return true;
-  });
+	.populate('bar')
+	.exec(function(err, user)
+	{
+		return true;
+	});
 
 User.findOne({ name: 'foo' }).populate('bar')
-.exec(function(err, user) {
-  return true;
+.exec(function(err, user)
+{
+	return true;
 });
 
 User.findOne({ name: 'foo' }).populate('bar')
-  .exec(function(err, user) {
-    return true;
-  });
+	.exec(function(err, user)
+	{
+		return true;
+	});
 ````
 
 ## Comments
@@ -592,20 +600,23 @@ be forever grateful.
 
 ```js
 var a = [];
-if (!a.length) {
-  console.log('winning');
+if (!a.length)
+{
+	console.log('winning');
 }
 ```
 
 *Wrong:*
 
 ```js
-Array.prototype.empty = function() {
-  return !this.length;
+Array.prototype.empty = function()
+{
+	return !this.length;
 }
 
 var a = [];
-if (a.empty()) {
-  console.log('losing');
+if (a.empty())
+{
+	console.log('losing');
 }
 ```
