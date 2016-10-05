@@ -41,10 +41,9 @@ license.
 * [Use descriptive conditions](#use-descriptive-conditions)
 
 ### Design Patterns
-* [No singletons](#no-singletons)
-* [No factories](#no-factories)
-* [Refactor often](#refactor-often)
+* [No singletons or factories](#no-singletons-or-factories)
 * [Use callbacks instead of promises](#use-callbacks-instead-of-promises)
+* [Refactor often](#refactor-often)
 
 ### Functions
 * [Write small functions](#write-small-functions)
@@ -366,16 +365,16 @@ Also, they carry state around for hte lifetime of the application, which also in
 Singletons solve one, and only one problem: resource contention.
 If you're not specifically solving that problem, singleton is the wrong pattern.
 
-### Refactor often
-
-Consider rewriting functions and algorithms after they are complete.
-Aim to simplify, reduce duplication, and increase reusability.
-
 ### Use callbacks instead of promises
 
 Generally, bias toward callbacks with a standard (err, result) signature.
 Since jQuery uses promises, then they're acceptable in the front-end.
 Avoid like the plague in anything that touches a database.
+
+### Refactor often
+
+Consider rewriting functions and algorithms after they are complete.
+Aim to simplify, reduce duplication, and increase reusability.
 
 
 ## Functions
