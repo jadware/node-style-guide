@@ -2,19 +2,18 @@
   "name": "node-style-guide",
   "description": "A guide for styling your node.js / JavaScript code.",
   "version": "1.0.0",
-  "author": "Felix Geisendörfer <felix@debuggable.com> (http://debuggable.com/)",
+  "author": "Jad Meouchy <jad@jadware.com>",
   "bugs": {
-    "url": "https://github.com/felixge/node-style-guide/issues"
+    "url": "https://github.com/jadware/remine-style-guide/issues"
   },
-  "homepage": "https://github.com/felixge/node-style-guide#readme",
+  "homepage": "https://github.com/jadware/remine-style-guide#readme",
   "keywords": [
-    "eslint",
     "jshint"
   ],
   "license": "CC-BY-SA-3.0",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/felixge/node-style-guide.git"
+    "url": "git+https://github.com/jadware/remine-style-guide.git"
   }
 }

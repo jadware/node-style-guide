@@ -1,30 +1,30 @@
-# Node.js Style Guide
+# Remine javascript style guide
 
-This is a guide for writing consistent and aesthetically pleasing node.js code.
-It is inspired by what is popular within the community, and flavored with some
+This is a guide for writing consistent and aesthetically pleasing Javascript/Node.js code.
+It is inspired by what is popular within the community, and flavored with 
 personal opinions.
 
 There is a .jshintrc which enforces these rules as closely as possible. You can
 either use that and adjust it, or use
 [this script](https://gist.github.com/kentcdodds/11293570) to make your own.
 
-This guide was created by [Felix Geisendörfer](http://felixge.de/) and is
+This guide was originally created by [Felix Geisendörfer](http://felixge.de/) and is
 licensed under the [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
-license. You are encouraged to fork this repository and make adjustments
-according to your preferences.
+license.
 
 ![Creative Commons License](http://i.creativecommons.org/l/by-sa/3.0/88x31.png)
 
 ## Table of contents
 
 ### Formatting
-* [2 Spaces for indentation](#2-spaces-for-indentation)
+* [Tabs for indentation](#tabs-for-indentation)
 * [Newlines](#newlines)
 * [No trailing whitespace](#no-trailing-whitespace)
 * [Use Semicolons](#use-semicolons)
 * [80 characters per line](#80-characters-per-line)
 * [Use single quotes](#use-single-quotes)
-* [Opening braces go on the same line](#opening-braces-go-on-the-same-line)
+* [Skip braces for single-line](#skip-braces-for-single-line)
+* [Opening braces go on the next line](#opening-braces-go-on-the-next-line)
 * [Declare one variable per var statement](#declare-one-variable-per-var-statement)
 
 ### Naming Conventions
@@ -47,23 +47,21 @@ according to your preferences.
 * [No nested closures](#no-nested-closures)
 * [Method chaining](#method-chaining)
 
-### Comments
+### Comments and Docs
 * [Use slashes for comments](#use-slashes-for-comments)
+* [Use jsdoc](#use-jsdoc)
 
 ### Miscellaneous
 * [Object.freeze, Object.preventExtensions, Object.seal, with, eval](#objectfreeze-objectpreventextensions-objectseal-with-eval)
-* [Requires At Top](#requires-at-top)
 * [Getters and setters](#getters-and-setters)
 * [Do not extend built-in prototypes](#do-not-extend-built-in-prototypes)
 
 ## Formatting
 
-You may want to use [editorconfig.org](http://editorconfig.org/) to enforce the formatting settings in your editor. Use the [Node.js Style Guide .editorconfig file](.editorconfig) to have indentation, newslines and whitespace behavior automatically set to the rules set up below.
+### Tabs for indentation
 
-### 2 Spaces for indentation
-
-Use 2 spaces for indenting your code and swear an oath to never mix tabs and
-spaces - a special kind of hell is awaiting you otherwise.
+Use tabs for indenting your code and do not mix tabs and spaces.
+If you already added spaces, change them to tabs.
 
 ### Newlines
 
@@ -72,9 +70,7 @@ of a file. Windows-style newlines (`\r\n`) are forbidden inside any repository.
 
 ### No trailing whitespace
 
-Just like you brush your teeth after every meal, you clean up any trailing
-whitespace in your JS files before committing. Otherwise the rotten smell of
-careless neglect will eventually drive away contributors and/or co-workers.
+Clean up any trailing whitespace in your JS files before committing.
 
 ### Use Semicolons
 
@@ -108,28 +104,50 @@ var foo = 'bar';
 var foo = "bar";
 ```
 
-### Opening braces go on the same line
-
-Your opening braces go on the same line as the statement.
+### Skip braces for single-line
 
 *Right:*
 
 ```js
-if (true) {
-  console.log('winning');
+if(true)
+	console.log('winning');
+```
+
+*Wrong:*
+
+```js
+if(true)
+{
+	console.log('losing');
+}
+```
+
+Also, notice the lack of whitespace before and after the condition statement.
+
+### Opening braces go on the next line
+
+Your opening braces go on the next line as the statement.
+
+*Right:*
+
+```js
+if(true)
+{
+	console.log('winning');
+	return true;
 }
 ```
 
 *Wrong:*
 
 ```js
-if (true)
-{
-  console.log('losing');
+if (true) {
+	console.log('losing');
+	return true;
 }
 ```
 
-Also, notice the use of whitespace before and after the condition statement.
+Also, notice the lack of whitespace before and after the condition statement.
 
 ### Declare one variable per var statement
 
@@ -145,9 +163,10 @@ var keys   = ['foo', 'bar'];
 var values = [23, 42];
 
 var object = {};
-while (keys.length) {
-  var key = keys.pop();
-  object[key] = values.pop();
+while(keys.length)
+{
+	var key = keys.pop();
+	object[key] = values.pop();
 }
 ```
 
@@ -159,9 +178,10 @@ var keys = ['foo', 'bar'],
     object = {},
     key;
 
-while (keys.length) {
-  key = keys.pop();
-  object[key] = values.pop();
+while(keys.length)
+{
+	key = keys.pop();
+	object[key] = values.pop();
 }
 ```
 
@@ -169,10 +189,10 @@ while (keys.length) {
 
 ### Naming Conventions
 
-### Use lowerCamelCase for variables, properties and function names
+### Do not universally use lowerCamelCase
 
-Variables, properties and function names should use `lowerCamelCase`.  They
-should also be descriptive. Single character variables and uncommon
+Variables, properties and function names should not universally use `lowerCamelCase`.
+They should also be descriptive. Single character variables and uncommon
 abbreviations should generally be avoided.
 
 *Right:*
@@ -194,14 +214,16 @@ Class names should be capitalized using `UpperCamelCase`.
 *Right:*
 
 ```js
-function BankAccount() {
+function BankAccount()
+{
 }
 ```
 
 *Wrong:*
 
 ```js
-function bank_Account() {
+function bank_Account()
+{
 }
 ```
 
@@ -215,7 +237,8 @@ using all uppercase letters.
 ```js
 var SECOND = 1 * 1000;
 
-function File() {
+function File()
+{
 }
 File.FULL_PERMISSIONS = 0777;
 ```
@@ -225,7 +248,8 @@ File.FULL_PERMISSIONS = 0777;
 ```js
 const SECOND = 1 * 1000;
 
-function File() {
+function File()
+{
 }
 File.fullPermissions = 0777;
 ```

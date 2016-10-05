@@ -1,15 +1,17 @@
 {
-  "camelcase": true,
-  "curly": true,
-  "eqeqeq": true,
-  "freeze": true,
-  "indent": 2,
-  "newcap": true,
-  "quotmark": "single",
-  "maxdepth": 3,
-  "maxstatements": 15,
-  "maxlen": 80,
-  "eqnull": true,
-  "funcscope": true,
-  "node": true
+	"unused": true,
+	"laxbreak": true,
+	"sub": true,
+	"eqeqeq": true,
+	"freeze": true,
+	"latedef": "nofunc",
+	"maxdepth": 4,
+	"nonew": true,
+	"shadow": "inner",
+	"globals":
+	{
+		"data": true,
+		"browser": true,
+		"jQuery": true
+	}
 }

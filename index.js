@@ -4,7 +4,6 @@ var readFile = require('fs').readFileSync;
 var pathJoin = require('path').join;
 
 module.exports = {
-  eslintrc: loadJson('.eslintrc'),
   jshintrc: loadJson('.jshintrc')
 };
 
