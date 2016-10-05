@@ -28,7 +28,7 @@ license.
 * [Declare one variable per var statement](#declare-one-variable-per-var-statement)
 
 ### Naming Conventions
-* [Use lowerCamelCase for variables, properties and function names](#use-lowercamelcase-for-variables-properties-and-function-names)
+* [Do not universally use lowerCamelCase](#do-not-universally-use-lowercamelcase)
 * [Use UpperCamelCase for class names](#use-uppercamelcase-for-class-names)
 * [Use UPPERCASE for Constants](#use-uppercase-for-constants)
 
@@ -40,12 +40,21 @@ license.
 * [Use multi-line ternary operator](#use-multi-line-ternary-operator)
 * [Use descriptive conditions](#use-descriptive-conditions)
 
+### Design Patterns
+* [No singletons](#no-singletons)
+* [No factories](#no-factories)
+* [Keep it simple](#keep-it-simple)
+* [Refactor often](#refactor-often)
+* [Use callbacks instead of promises](#use-callbacks-instead-of-promises)
+
 ### Functions
 * [Write small functions](#write-small-functions)
+* [Don't repeat yourself](#dont-repeat-yourself)
 * [Return early from functions](#return-early-from-functions)
 * [Name your closures](#name-your-closures)
 * [No nested closures](#no-nested-closures)
 * [Method chaining](#method-chaining)
+* [Use globals in scope](#use-globals-in-scope)
 
 ### Comments and Docs
 * [Use slashes for comments](#use-slashes-for-comments)
@@ -516,13 +525,15 @@ var matches = item.match(/ID_([^\n]+)=([^\n]+)/));
 // This function has a nasty side effect where a failure to increment a
 // redis counter used for statistics will cause an exception. This needs
 // to be fixed in a later iteration.
-function loadUser(id, cb) {
-  // ...
+function loadUser(id, cb)
+{
+	// ...
 }
 
 var isSessionValid = (session.expires < Date.now());
-if (isSessionValid) {
-  // ...
+if(isSessionValid)
+{
+	// ...
 }
 ```
 
@@ -533,17 +544,24 @@ if (isSessionValid) {
 var matches = item.match(/ID_([^\n]+)=([^\n]+)/);
 
 // Usage: loadUser(5, function() { ... })
-function loadUser(id, cb) {
-  // ...
+function loadUser(id, cb)
+{
+	// ...
 }
 
 // Check if the session is valid
 var isSessionValid = (session.expires < Date.now());
 // If the session is valid
-if (isSessionValid) {
-  // ...
+if(isSessionValid)
+{
+	// ...
 }
 ```
+
+### Use jsdoc
+
+Documentation is absolutely necessary, and we use automated code quality analysis tools.
+Full jsdoc reference can be found at: https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler
 
 ## Miscellaneous
 
