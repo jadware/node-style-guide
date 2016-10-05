@@ -43,7 +43,6 @@ license.
 ### Design Patterns
 * [No singletons](#no-singletons)
 * [No factories](#no-factories)
-* [Keep it simple](#keep-it-simple)
 * [Refactor often](#refactor-often)
 * [Use callbacks instead of promises](#use-callbacks-instead-of-promises)
 
@@ -52,7 +51,7 @@ license.
 * [Don't repeat yourself](#dont-repeat-yourself)
 * [Return early from functions](#return-early-from-functions)
 * [Name your closures](#name-your-closures)
-* [No nested closures](#no-nested-closures)
+* [Nested closures are OK](#nested-closures-are-ok)
 * [Method chaining](#method-chaining)
 * [Use globals in scope](#use-globals-in-scope)
 
@@ -323,13 +322,13 @@ if (a == '')
 If the ternary operator can fit on a single line, do it.  Otherwise, split it up into multiple lines.
 
 
-*Wrong:*
+*Right:*
 
 ```js
 var foo = (a === b) ? 1 : 2;
 ```
 
-*Right:*
+*Wrong:*
 
 ```js
 var foo = (a === b)
@@ -357,6 +356,28 @@ if(password.length >= 4 && /^(?=.*\d).{4,}$/.test(password))
 	console.log('losing');
 ```
 
+## Design Patterns
+
+### No singletons or factories
+
+Don't use singletons or factories.  They tend to hide dependencies, violate the [single responsibility principle] (https://en.wikipedia.org/wiki/Single_responsibility_principle),
+and cause code to be tightly coupled which interferes with testing.
+Also, they carry state around for hte lifetime of the application, which also interferes with unit testing.
+Singletons solve one, and only one problem: resource contention.
+If you're not specifically solving that problem, singleton is the wrong pattern.
+
+### Refactor often
+
+Consider rewriting functions and algorithms after they are complete.
+Aim to simplify, reduce duplication, and increase reusability.
+
+### Use callbacks instead of promises
+
+Generally, bias toward callbacks with a standard (err, result) signature.
+Since jQuery uses promises, then they're acceptable in the front-end.
+Avoid like the plague in anything that touches a database.
+
+
 ## Functions
 
 ### Write small functions
@@ -364,6 +385,11 @@ if(password.length >= 4 && /^(?=.*\d).{4,}$/.test(password))
 Keep your functions short. A good function fits on a slide that the people in
 the last row of a big room can comfortably read. So don't count on them having
 perfect vision and limit yourself to ~15 lines of code per function.
+
+### Don't repeat yourself
+
+Don't copy/paste code.  Abstract it away into a helper or utility function as needed.
+Refactor code as needed to minimize the amount of lines it takes up.
 
 ### Return early from functions
 
