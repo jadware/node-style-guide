@@ -1,4 +1,4 @@
-# Remine javascript style guide
+# JS Style Guide
 
 This is a guide for writing consistent and aesthetically pleasing Javascript/Node.js code.
 It is inspired by what is popular within the community, and flavored with 
