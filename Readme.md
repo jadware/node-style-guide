@@ -43,6 +43,7 @@ license.
 ### Design Patterns
 * [No singletons or factories](#no-singletons-or-factories)
 * [Use callbacks instead of promises](#use-callbacks-instead-of-promises)
+* [Use dependency injection](#use-dependency-injection)
 * [Refactor often](#refactor-often)
 
 ### Functions
@@ -372,6 +373,10 @@ Generally, bias toward callbacks with a standard (err, result) signature.
 Since jQuery uses promises, then they're acceptable in the front-end.
 Avoid like the plague in anything that touches a database.
 
+### Use dependency injection
+
+Just read this: http://www.jamesshore.com/Blog/Dependency-Injection-Demystified.html
+
 ### Refactor often
 
 Consider rewriting functions and algorithms after they are complete.
@@ -509,7 +514,7 @@ User
 	{
 		return true;
 	});
-````
+```
 
 *Wrong:*
 
@@ -540,7 +545,7 @@ User.findOne({ name: 'foo' }).populate('bar')
 	{
 		return true;
 	});
-````
+```
 
 ## Comments
 
