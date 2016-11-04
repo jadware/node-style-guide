@@ -1,13 +1,5 @@
 # JS Style Guide
 
-This is a guide for writing consistent and aesthetically pleasing Javascript/Node.js code.
-It is inspired by what is popular within the community, and flavored with 
-personal opinions.
-
-There is a .jshintrc which enforces these rules as closely as possible. You can
-either use that and adjust it, or use
-[this script](https://gist.github.com/kentcdodds/11293570) to make your own.
-
 This guide was originally created by [Felix Geisendörfer](http://felixge.de/) and is
 licensed under the [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
 license.
@@ -28,6 +20,7 @@ license.
 * [Declare one variable per var statement](#declare-one-variable-per-var-statement)
 
 ### Naming Conventions
+* [Use semantic names](#use-semantic-names)
 * [Do not universally use lowerCamelCase](#do-not-universally-use-lowercamelcase)
 * [Use UpperCamelCase for class names](#use-uppercamelcase-for-class-names)
 * [Use UPPERCASE for Constants](#use-uppercase-for-constants)
@@ -195,7 +188,10 @@ while(keys.length)
 
 [crockfordconvention]: http://javascript.crockford.com/code.html
 
-### Naming Conventions
+## Naming Conventions
+
+### Use semantic names
+https://css-tricks.com/semantic-class-names/
 
 ### Do not universally use lowerCamelCase
 
