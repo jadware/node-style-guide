@@ -1,4 +1,4 @@
-# JS Style Guide
+# HTML/JS Style Guide
 
 This guide was originally created by [Felix Geisendörfer](http://felixge.de/) and is
 licensed under the [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
