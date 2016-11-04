@@ -55,6 +55,7 @@ license.
 * [Object.freeze, Object.preventExtensions, Object.seal, with, eval](#objectfreeze-objectpreventextensions-objectseal-with-eval)
 * [Getters and setters](#getters-and-setters)
 * [Do not extend built-in prototypes](#do-not-extend-built-in-prototypes)
+* [Avoid alert](#avoid-alert)
 
 ### HTML
 * [No grids](#no-grids)
@@ -650,6 +651,8 @@ if (a.empty())
 	console.log('losing');
 }
 ```
+### Avoid alert
+Never, ever use the alert() function.  You can use console.log if you eventually remove it.  console.error and console.warn are acceptable.
 
 ## HTML
 
