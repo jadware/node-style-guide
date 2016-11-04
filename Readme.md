@@ -12,7 +12,7 @@ license.
 * [Tabs for indentation](#tabs-for-indentation)
 * [Newlines](#newlines)
 * [No trailing whitespace](#no-trailing-whitespace)
-* [Use Semicolons](#use-semicolons)
+* [Use semicolons](#use-semicolons)
 * [80 characters per line](#80-characters-per-line)
 * [Use single quotes](#use-single-quotes)
 * [Skip braces for single-line](#skip-braces-for-single-line)
@@ -20,7 +20,6 @@ license.
 * [Declare one variable per var statement](#declare-one-variable-per-var-statement)
 
 ### Naming Conventions
-* [Use semantic names](#use-semantic-names)
 * [Do not universally use lowerCamelCase](#do-not-universally-use-lowercamelcase)
 * [Use UpperCamelCase for class names](#use-uppercamelcase-for-class-names)
 * [Use UPPERCASE for Constants](#use-uppercase-for-constants)
@@ -56,6 +55,13 @@ license.
 * [Object.freeze, Object.preventExtensions, Object.seal, with, eval](#objectfreeze-objectpreventextensions-objectseal-with-eval)
 * [Getters and setters](#getters-and-setters)
 * [Do not extend built-in prototypes](#do-not-extend-built-in-prototypes)
+
+### HTML
+* [No grids](#no-grids)
+* [Use semantic elements](#use-semantic-elements)
+* [Use semantic names](#use-semantic-names)
+* [Be minimal](#be-minimal)
+* [Avoid nested divs](#avoid-nested-divs)
 
 ## Formatting
 
@@ -189,9 +195,6 @@ while(keys.length)
 [crockfordconvention]: http://javascript.crockford.com/code.html
 
 ## Naming Conventions
-
-### Use semantic names
-https://css-tricks.com/semantic-class-names/
 
 ### Do not universally use lowerCamelCase
 
@@ -646,4 +649,39 @@ if (a.empty())
 {
 	console.log('losing');
 }
+```
+
+## HTML
+
+### No grids
+Grids are not semantic, so do not ever use them.  No "column" classes or anything like that.  HTML should contain content and content structure, not layout.
+
+### Use semantic elements
+When possible, replace classes with the corresponding descriptive element.  For example, instead of a <div class="para">, use the <p> tag instead.
+
+### Use semantic names
+A common pitfall of class naming is to describe the layout with names like "left", "right", or "clearfix".  These are wrong for various reasons, and the best discussion of these is at the following article: https://css-tricks.com/semantic-class-names/
+
+### Be minimal
+Keep your HTML short and sweet.  Use CSS and pseudo-elements, when necessary, to 
+
+### Avoid nested divs
+Keep your HTML as flat as possible and use CSS to do the magic.  
+
+*Wrong:*
+
+```html
+<div class="outer">
+	<div class="inner">
+		<div class="content">
+			<p>information</p>
+		</div>
+	</div>
+</div>
+```
+
+*Right:*
+
+```html
+<p>information</p>
 ```
