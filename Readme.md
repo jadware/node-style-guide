@@ -8,7 +8,7 @@ license.
 
 ## Table of contents
 
-### Formatting
+### 1. Formatting
 * [Tabs for indentation](#tabs-for-indentation)
 * [Newlines](#newlines)
 * [No trailing whitespace](#no-trailing-whitespace)
@@ -19,26 +19,27 @@ license.
 * [Opening braces go on the next line](#opening-braces-go-on-the-next-line)
 * [Declare one variable per var statement](#declare-one-variable-per-var-statement)
 
-### Naming Conventions
+### 2. Naming Conventions
 * [Do not universally use lowerCamelCase](#do-not-universally-use-lowercamelcase)
 * [Use UpperCamelCase for class names](#use-uppercamelcase-for-class-names)
 * [Use UPPERCASE for Constants](#use-uppercase-for-constants)
+* [Git branches are lowercase with dashes](#git-branches-are-lowercase-with-dashes)
 
-### Variables
+### 3. Variables
 * [Object / Array creation](#object--array-creation)
 
-### Conditionals
+### 4. Conditionals
 * [Use the === operator](#use-the--operator)
 * [Use multi-line ternary operator](#use-multi-line-ternary-operator)
 * [Use descriptive conditions](#use-descriptive-conditions)
 
-### Design Patterns
+### 5. Design Patterns
 * [No singletons or factories](#no-singletons-or-factories)
 * [Use callbacks instead of promises](#use-callbacks-instead-of-promises)
 * [Use dependency injection](#use-dependency-injection)
 * [Refactor often](#refactor-often)
 
-### Functions
+### 6. Functions
 * [Write small functions](#write-small-functions)
 * [Don't repeat yourself](#dont-repeat-yourself)
 * [Return early from functions](#return-early-from-functions)
@@ -47,17 +48,17 @@ license.
 * [Method chaining](#method-chaining)
 * [Use globals in scope](#use-globals-in-scope)
 
-### Comments and Docs
+### 7. Comments and Docs
 * [Use slashes for comments](#use-slashes-for-comments)
 * [Use jsdoc](#use-jsdoc)
 
-### Miscellaneous
+### 8. Miscellaneous
 * [Object.freeze, Object.preventExtensions, Object.seal, with, eval](#objectfreeze-objectpreventextensions-objectseal-with-eval)
 * [Getters and setters](#getters-and-setters)
 * [Do not extend built-in prototypes](#do-not-extend-built-in-prototypes)
 * [Avoid alert](#avoid-alert)
 
-### HTML
+### 9. HTML
 * [No grids](#no-grids)
 * [Use semantic elements](#use-semantic-elements)
 * [Use semantic names](#use-semantic-names)
@@ -263,6 +264,26 @@ File.fullPermissions = 0777;
 ```
 
 [const]: https://developer.mozilla.org/en/JavaScript/Reference/Statements/const
+
+### Git Branches are Lowercase with Dashes
+
+Use a specific, consistent convention for git branches of lowercase words separated by dashes.  Keep the words as short as possible and ultra-concise.  Omit unnecessary words, avoid vague phrases.  Do not put the ticket number in the branch name.
+
+*Right:*
+
+```
+new-heatmaps
+sass-cleaning
+```
+
+*Wrong:*
+
+```
+NewHeatmaps
+CleaningUpSass
+RM-321
+rm321
+```
 
 ## Variables
 
