@@ -10,10 +10,8 @@ license.
 
 ### 1. Formatting
 * [Tabs for indentation](#tabs-for-indentation)
-* [Newlines](#newlines)
-* [No trailing whitespace](#no-trailing-whitespace)
 * [Use semicolons](#use-semicolons)
-* [80 characters per line](#80-characters-per-line)
+* [120 characters per line](#120-characters-per-line)
 * [Use single quotes](#use-single-quotes)
 * [Skip braces for single-line](#skip-braces-for-single-line)
 * [Opening braces go on the next line](#opening-braces-go-on-the-next-line)
@@ -43,7 +41,7 @@ license.
 * [Write small functions](#write-small-functions)
 * [Don't repeat yourself](#dont-repeat-yourself)
 * [Return early from functions](#return-early-from-functions)
-* [Name your anonymous functions](#name-your-anonymous-functions)
+* [You may or may not name your anonymous functions](#you-may-or-may-not-name-your-anonymous-functions)
 * [Nested anonymous functions are OK](#nested-anonymous-functions-are-ok)
 * [Method chaining](#method-chaining)
 * [Use globals in scope](#use-globals-in-scope)
@@ -72,15 +70,6 @@ license.
 Use tabs for indenting your code and do not mix tabs and spaces.
 If you already added spaces, change them to tabs.
 
-### Newlines
-
-Use UNIX-style newlines (`\n`), and a newline character as the last character
-of a file. Windows-style newlines (`\r\n`) are forbidden inside any repository.
-
-### No trailing whitespace
-
-Clean up any trailing whitespace in your JS files before committing.
-
 ### Use Semicolons
 
 According to [scientific research][hnsemicolons], the usage of semicolons is
@@ -91,9 +80,9 @@ cheap syntactic pleasures.
 [the opposition]: http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding
 [hnsemicolons]: http://news.ycombinator.com/item?id=1547647
 
-### 80 characters per line
+### 120 characters per line
 
-Limit your lines to 80 characters. Yes, screens have gotten much bigger over the
+Limit your lines to 120 characters. Yes, screens have gotten much bigger over the
 last few years, but your brain has not. Use the additional room for split screen,
 your editor supports that, right?
 
@@ -289,7 +278,7 @@ rm321
 
 ### Object / Array creation
 
-Use trailing commas and put *short* declarations on a single line. Always quote keys.
+Never use trailing commas and put *short* declarations on a single line. Always quote keys.
 
 *Right:*
 
@@ -298,7 +287,7 @@ var a = ['hello', 'world'];
 var b =
 {
 	'good': 'code',
-	'is generally': 'pretty',
+	'is generally': 'pretty'
 };
 ```
 
@@ -309,7 +298,7 @@ var a = [
 	'hello', 'world'
 ];
 var b = {"good": 'code'
-        , is generally: 'pretty'
+        , is generally: 'pretty',
         };
 ```
 
@@ -465,28 +454,9 @@ function isPercentage(val)
 }
 ```
 
-### Name your anonymous functions
+### You may or may not name your anonymous functions
 
-Feel free to give your anonymous functions a name. It shows that you care about them, and
-will produce better stack traces, heap and cpu profiles.
-
-*Right:*
-
-```js
-req.on('end', function onEnd()
-{
-	console.log('winning');
-});
-```
-
-*Wrong:*
-
-```js
-req.on('end', function()
-{
-	console.log('losing');
-});
-```
+It is up to you whether or not your anonymous functions have names. Use your best judgment; named functions will produce better stack traces, heap and cpu profiles.
 
 ### Nested anonymous functions are OK
 
@@ -687,7 +657,7 @@ When possible, replace classes with the corresponding descriptive element.  For 
 A common pitfall of class naming is to describe the layout with names like "left", "right", or "clearfix".  These are wrong for various reasons, and the best discussion of these is at the following article: https://css-tricks.com/semantic-class-names/
 
 ### Be minimal
-Keep your HTML short and sweet.  Use CSS and pseudo-elements, when necessary, to 
+Keep your HTML short and sweet.  Use CSS and pseudo-elements, when necessary, to
 
 ### Avoid nested divs
 Keep your HTML as flat as possible and use CSS to do the magic.  
